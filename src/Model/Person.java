@@ -20,11 +20,33 @@ public class Person {
     }
 	
 	
-	
-	//Method
-    public String getFullName() {
-        return firstName + " " + lastName;
+    //getters
+    public int getUniqueId() {
+    	return uniqueId;
     }
+    
+    public String getFirstName() {
+    	return firstName;
+    }
+    
+    public String getFullName() {
+    	return firstName + " " + lastName;
+    }
+    
 	
+    public String getDob() {
+    	return dob;
+    }
+    
+    public String getPhoneNo() {
+    	return phoneNo;
+    }
+    
+    public String getContactEmail() {
+    	return contactEmail;
+    }
+    
+    
+     
 
 }
