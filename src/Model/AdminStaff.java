@@ -38,6 +38,9 @@ public class AdminStaff extends Person {
 	        // Actual facility management logic will be handled externally
 	    }
 	    
-	    
+	    @Override 
+	    public String toString() {
+	    	return getFullName() + " - " + staffid;
+	    }
 	    
 }

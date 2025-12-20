@@ -48,7 +48,11 @@ public class Patient extends Person {
 	 }
 	 
 	
-	
+	 @Override 
+	 public String toString() { 
+		 
+		 return getFullName() + " (" + nhsNumber + ")";
+	 }
 	
 	
 	

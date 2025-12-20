@@ -24,5 +24,9 @@ public class Prescription extends ClinicalDocument {
 	public String getDrugDetails() {
         return "Drug: " + drugName + ", Dosage: " + Dosage;
     }
-
+	
+	@Override 
+	public String toString() { 
+		return getDocumentID() + " - " + getDrugName() + " " + getDosage();
+	}
 }

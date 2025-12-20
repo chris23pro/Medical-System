@@ -19,4 +19,8 @@ public class HealthcareFacility {
         System.out.println("Managing resources for facility " + facilityCode);
     }
 	
+	@Override 
+	public String toString() {
+		return facilityCode + " - " +  "Facility";
+	}
 }

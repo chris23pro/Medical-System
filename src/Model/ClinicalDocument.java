@@ -42,5 +42,8 @@ public class ClinicalDocument {
     public void viewDocument() {
         System.out.println("Viewing document " + documentID + ": " + content);
     }
-
+    
+    @Override public String toString() {
+    	return getDocumentID() + " - " + getTitle() + " (" + getDateCreated() + ")";
+    	}
 }

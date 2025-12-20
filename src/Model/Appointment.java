@@ -36,7 +36,10 @@ public class Appointment {
 	
 	
 	
-	
+	@Override
+	public String toString() {
+		return appId + " : " + dateTime;
+	}
 	
 
 

@@ -27,5 +27,9 @@ public class SpecialistDoctor extends Clinician {
 	public void createPrescription() {
 		
 	}
-
+	
+	@Override 
+	public String toString() {
+		return "Specialist " + getFullName() + " (" + getSpecilistID() + ") - " + getLicenseID(); 
+	}
 }

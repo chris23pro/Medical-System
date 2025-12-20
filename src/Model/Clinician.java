@@ -34,4 +34,10 @@ public class Clinician extends Person {
 	public void viewClinicalAssessments() {
 	    System.out.println("Clinician " + getEmployeeID() + " is viewing clinical assessments.");
 	}
+	
+	
+	@Override 
+	public String toString() {
+		return getFullName() + " [" + employeeID + "] - " + (licenseID == null ? "" : licenseID); 
+	}
 }

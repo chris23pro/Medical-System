@@ -25,4 +25,9 @@ public class ClinicalAssesments extends ClinicalDocument {
 	public String getAssessmentDetails() {
         return "Symptoms: " + symptoms + ", Findings: " + findings;
     }
+	
+	@Override 
+	public String toString() { 
+		return getDocumentID() + " - Assessment: " + getsymptoms();
+	}
 }

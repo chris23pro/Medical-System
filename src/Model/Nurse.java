@@ -26,4 +26,9 @@ public class Nurse extends Clinician {
 		
 	}
 	
+	@Override 
+	public String toString() {
+		return "Nurse " + getFullName() + " (" + getNurseID() + ")";
+	}
+	
 }

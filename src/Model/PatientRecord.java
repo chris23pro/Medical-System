@@ -39,7 +39,10 @@ public class PatientRecord {
     }
 	
 	
-	
+	@Override 
+	public String toString() {
+		return "Record " + recordID + " for " + (patient == null ? "unknown" : patient.getFullName());
+	}
 	
 
 }

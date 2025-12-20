@@ -35,4 +35,8 @@ public class Referral extends ClinicalDocument {
                ", Specialist Doctor: " + SpecialistDoctor;
     }
     
+    @Override 
+    public String toString() {
+    	return getDocumentID() + " - " + getTargetSpecialist() + " : " + getReferralReason(); 
+    }
 }

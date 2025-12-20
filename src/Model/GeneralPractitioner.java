@@ -24,4 +24,9 @@ public class GeneralPractitioner extends Clinician {
 	 public void createPrescription() {
 	        System.out.println("GP " + gpcode + " is creating a prescription.");
 	    }
+	 
+	 @Override 
+	 public String toString() {
+		 return "GP " + getFullName() + " (" + getGpCode() + ")"; 
+	}
 }
