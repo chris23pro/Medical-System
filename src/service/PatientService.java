@@ -10,12 +10,20 @@ import Model.Patient;
 
 public class PatientService {
 
-    private PatientRepository patientRepository = new PatientRepository();
+    private PatientRepository patientRepository;
+
+    public PatientService() {
+        this(new PatientRepository());
+    }
+
+    public PatientService(PatientRepository patientRepository) {
+        this.patientRepository = patientRepository;
+    }
 
     public String registerPatient(Patient patient) {
 
-        if (patient.getNhsNumber() == null || patient.getNhsNumber().length() != 10) {
-            return "Invalid NHS number. It must be exactly 10 characters long.";
+        if (patient.getNhsNumber() == null || patient.getNhsNumber().length() < 9 || patient.getNhsNumber().length() > 10) {
+            return "Invalid NHS number. It must be 9 or 10 characters long.";
         }
 
         Optional<Patient> existing = patientRepository.findByNhs(patient.getNhsNumber());
@@ -48,18 +56,29 @@ public class PatientService {
             br.readLine(); // skip header
 
             while ((line = br.readLine()) != null) {
-                String[] data = line.split(",");
+                String[] data = CsvUtils.parseLine(line);
 
-                int uid = Integer.parseInt(data[0]);
+                if (data.length < 14) {
+                    continue;
+                }
+
+                String patientId = data[0];
                 String first = data[1];
                 String last = data[2];
                 String dob = data[3];
-                String phone = data[4];
-                String email = data[5];
-                String nhs = data[6];
-                String address = data[7];
+                String nhs = data[4];
+                String gender = data[5];
+                String phone = data[6];
+                String email = data[7];
+                String address = data[8];
+                String postcode = data[9];
+                String emergencyContactName = data[10];
+                String emergencyContactPhone = data[11];
+                String registrationDate = data[12];
+                String gpSurgeryId = data[13];
 
-                Patient p = new Patient(uid, first, last, dob, phone, email, nhs, address);
+                Patient p = new Patient(patientId, first, last, dob, phone, email, nhs, address, gender,
+                        postcode, emergencyContactName, emergencyContactPhone, registrationDate, gpSurgeryId);
                 patientRepository.add(p);
             }
 

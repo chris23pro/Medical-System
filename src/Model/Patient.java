@@ -1,23 +1,44 @@
 package Model;
 
 public class Patient extends Person {
+	private String patientId;
 	private String nhsNumber;
     private String address;
+	private String gender;
+	private String postcode;
+	private String emergencyContactName;
+	private String emergencyContactPhone;
+	private String registrationDate;
+	private String gpSurgeryId;
 
 	
 	//constructor initializes Patient
-	public Patient(int uid, String fName, String lName, String dateOfBirth, String phone, String email,String nhsNum, String addr) {
+	public Patient(String id, String fName, String lName, String dateOfBirth, String phone, String email,
+				   String nhsNum, String addr, String gender, String postcode,
+				   String emergencyContactName, String emergencyContactPhone,
+				   String registrationDate, String gpSurgeryId) {
 		
 		// Call Person constructor
-		super(uid, fName, lName, dateOfBirth, phone, email);
+		super(id, fName, lName, dateOfBirth, phone, email);
 		
 		// Assign Patient-specific attributes
+		patientId = id;
 		nhsNumber = nhsNum;
 		address = addr;
+		this.gender = gender;
+		this.postcode = postcode;
+		this.emergencyContactName = emergencyContactName;
+		this.emergencyContactPhone = emergencyContactPhone;
+		this.registrationDate = registrationDate;
+		this.gpSurgeryId = gpSurgeryId;
 		}
 	
 	
 	
+	public String getPatientId() {
+		return patientId;
+	}
+
 	public String getNhsNumber() {
         return nhsNumber;
     }
@@ -25,6 +46,30 @@ public class Patient extends Person {
 	public String getAddress() {
         return address;
     }
+
+	public String getGender() {
+		return gender;
+	}
+
+	public String getPostcode() {
+		return postcode;
+	}
+
+	public String getEmergencyContactName() {
+		return emergencyContactName;
+	}
+
+	public String getEmergencyContactPhone() {
+		return emergencyContactPhone;
+	}
+
+	public String getRegistrationDate() {
+		return registrationDate;
+	}
+
+	public String getGpSurgeryId() {
+		return gpSurgeryId;
+	}
 	
 	
 	
@@ -51,7 +96,7 @@ public class Patient extends Person {
 	 @Override 
 	 public String toString() { 
 		 
-		 return getFullName() + " (" + nhsNumber + ")";
+		 return getFullName() + " (" + patientId + ")";
 	 }
 	
 	
@@ -63,4 +108,4 @@ public class Patient extends Person {
 	
 	
 	
-}
+	}

@@ -26,6 +26,15 @@ public class PatientRepository {
         return Optional.empty();
     }
 
+	public Optional<Patient> findById(String patientId) {
+		for (Patient patient : patients) {
+			if (patient.getPatientId().equals(patientId)) {
+				return Optional.of(patient);
+			}
+		}
+		return Optional.empty();
+	}
+
     public List<Patient> findAll() {
         return new ArrayList<>(patients);
     }

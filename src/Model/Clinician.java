@@ -7,7 +7,8 @@ public class Clinician extends Person {
 	
 	
 	
-	public Clinician(int uid, String fName, String lName, String dateOfBirth, String phone, String email,String emID,String LicsID) {
+	public Clinician(String uid, String fName, String lName, String dateOfBirth, String phone, String email,
+					 String emID, String LicsID) {
 		super(uid, fName, lName, dateOfBirth, phone, email);
 		employeeID = emID;
 		licenseID= LicsID;
