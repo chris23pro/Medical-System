@@ -2,17 +2,17 @@ package Model;
 
 public class Nurse extends Clinician {
 	//attributes
-	private String nurseID;
+	private String nurseId;
 
-	public Nurse(int uid, String fName, String lName, String dateOfBirth, String phone, String email, String emID,
+	public Nurse(String uid, String fName, String lName, String dateOfBirth, String phone, String email, String emID,
 			String LicsID,String nID) {
 		super(uid, fName, lName, dateOfBirth, phone, email, emID, LicsID);
-		nurseID = nID;
+		nurseId = nID;
 	}
 	
 	//getters
 	public String getNurseID() {
-		return nurseID;
+		return nurseId;
 	}
 	
 	//void methods 
