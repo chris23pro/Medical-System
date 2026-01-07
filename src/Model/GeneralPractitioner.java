@@ -2,27 +2,27 @@ package Model;
 
 public class GeneralPractitioner extends Clinician {
 	//attributes for GP
-	private String gpcode;
+	private String gpCode;
 	
 	//constructor 
-	public GeneralPractitioner(int uid, String fName, String lName, String dateOfBirth, String phone, String email,
+	public GeneralPractitioner(String uid, String fName, String lName, String dateOfBirth, String phone, String email,
 			String emID, String LicsID, String gpC ) {
 		super(uid, fName, lName, dateOfBirth, phone, email, emID, LicsID);
-		gpcode = gpC;
+		gpCode = gpC;
 	}
 	
 	//getters methods
 	public String getGpCode() {
-        return gpcode;
+        return gpCode;
     }
 	
 	//void methods 
 	 public void createReferral() {
-	        System.out.println("GP " + gpcode + " is creating a referral.");
+	        System.out.println("GP " + gpCode + " is creating a referral.");
 	    }
 
 	 public void createPrescription() {
-	        System.out.println("GP " + gpcode + " is creating a prescription.");
+	        System.out.println("GP " + gpCode + " is creating a prescription.");
 	    }
 	 
 	 @Override 

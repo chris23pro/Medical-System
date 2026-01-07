@@ -3,18 +3,22 @@ package Model;
 
 public class SpecialistDoctor extends Clinician {
 	//attributes
-	private String SPID;
+	private String specialistId;
 
-	public SpecialistDoctor(int uid, String fName, String lName, String dateOfBirth, String phone, String email,
+	public SpecialistDoctor(String uid, String fName, String lName, String dateOfBirth, String phone, String email,
 			String emID, String LicsID, String specID) {
 		super(uid, fName, lName, dateOfBirth, phone, email, emID, LicsID);
-		SPID = specID;
+		specialistId = specID;
 	}
 	
 	
 	//getters
+	public String getSpecialistId() {
+		return specialistId;
+	}
+
 	public String getSpecilistID() {
-		return SPID;
+		return getSpecialistId();
 	}
 	
 	//void methods
@@ -30,6 +34,6 @@ public class SpecialistDoctor extends Clinician {
 	
 	@Override 
 	public String toString() {
-		return "Specialist " + getFullName() + " (" + getSpecilistID() + ") - " + getLicenseID(); 
+		return "Specialist " + getFullName() + " (" + getSpecialistId() + ") - " + getLicenseID(); 
 	}
 }
