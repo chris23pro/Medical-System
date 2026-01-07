@@ -51,5 +51,38 @@ public class ClinicianService {
     public List<Clinician> getAllClinicians() {
         return clinicianRepository.findAll();
     }
+    
+    public void loadFromCsv(String fileName) {
+        // read CSV, create objects, store in repository
+    }
+    
+    public void loadFromCsv(String fileName) {
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+
+            String line;
+            br.readLine(); // skip header
+
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split(",");
+
+                int uid = Integer.parseInt(data[0]);
+                String first = data[1];
+                String last = data[2];
+                String dob = data[3];
+                String phone = data[4];
+                String email = data[5];
+                String employeeId = data[6];
+                String licenseId = data[7];
+
+                Clinician c = new Clinician(uid, first, last, dob, phone, email, employeeId, licenseId);
+                clinicianRepository.add(c);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error loading clinicians CSV: " + e.getMessage());
+        }
+    }
+
+
 }
 

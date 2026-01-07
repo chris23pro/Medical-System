@@ -59,5 +59,39 @@ public class PatientService {
         patientRepository.deleteByNhs(nhsNumber);
         return "Patient deleted (if they existed).";
     }
+    
+    public void loadFromCsv(String fileName) {
+        // read CSV, create objects, store in repository
+    }
+    
+    
+    public void loadFromCsv(String fileName) {
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+
+            String line;
+            br.readLine(); // skip header
+
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split(",");
+
+                int uid = Integer.parseInt(data[0]);
+                String first = data[1];
+                String last = data[2];
+                String dob = data[3];
+                String phone = data[4];
+                String email = data[5];
+                String nhs = data[6];
+                String address = data[7];
+
+                Patient p = new Patient(uid, first, last, dob, phone, email, nhs, address);
+                patientRepository.add(p);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error loading patients CSV: " + e.getMessage());
+        }
+    }
+
+
 }
 

@@ -49,5 +49,10 @@ public class PatientRepository {
     public void deleteByNhs(String nhsNumber) {
         patients.removeIf(patient -> patient.getNhsNumber().equals(nhsNumber));
     }
+
+	public void add(Patient p) {
+		// TODO Auto-generated method stub
+		
+	}
 }
 

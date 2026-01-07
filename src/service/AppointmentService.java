@@ -73,5 +73,32 @@ public class AppointmentService {
         appointmentRepository.deleteById(appId);
         return "Appointment cancelled (if it existed).";
     }
+    
+    
+    
+    
+    
+    public void loadFromCsv(String fileName) {
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+
+            String line;
+            br.readLine(); // skip header
+
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split(",");
+
+                String appId = data[0];
+                String dateTime = data[4] + " " + data[5]; // date + time
+
+                Appointment a = new Appointment(appId, dateTime);
+                appointmentRepository.add(a);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error loading appointments CSV: " + e.getMessage());
+        }
+    }
+
+
 }
 

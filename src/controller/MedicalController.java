@@ -156,4 +156,24 @@ public class MedicalController {
     public String addDocumentToRecord(String recordId, ClinicalDocument doc) {
         return patientRecordService.addDocumentToRecord(recordId, doc);
     }
+    
+ // CSV loading
+    public void loadPatientsFromCsv(String fileName) { patientService.loadFromCsv(fileName); }
+    public void loadCliniciansFromCsv(String fileName) { clinicianService.loadFromCsv(fileName); }
+    public void loadAppointmentsFromCsv(String fileName) { appointmentService.loadFromCsv(fileName); }
+    public void loadPrescriptionsFromCsv(String fileName) { documentService.loadPrescriptionsFromCsv(fileName); }
+    public void loadReferralsFromCsv(String fileName) { documentService.loadReferralsFromCsv(fileName); }
+
+    // Create prescription (and write to file)
+    public void createPrescription(String id, String title, String content, String date,
+                                   String drug, String dose) {
+        documentService.createPrescription(id, title, content, date, drug, dose);
+    }
+
+    // Create referral via Singleton manager (and write to file)
+    public void createReferral(String id, String title, String content, String date,
+                               String reason, String target, String doctor) {
+        documentService.createReferral(id, title, content, date, reason, target, doctor);
+    }
+
 }

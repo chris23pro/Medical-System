@@ -28,6 +28,7 @@ public class Referral extends ClinicalDocument {
     }
     
     
+    
     //methods 
     public String getReferralDetails() {
         return "Referral Reason: " + referralReason +
@@ -39,4 +40,16 @@ public class Referral extends ClinicalDocument {
     public String toString() {
     	return getDocumentID() + " - " + getTargetSpecialist() + " : " + getReferralReason(); 
     }
+
+
+	public String getDocumentTitle() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public String getDocumentDate() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -89,7 +89,7 @@ public class MainMenu implements ActionListener {
             tableModel.addRow(new Object[]{
                     p.getNhsNumber(),
                     p.getFirstName(),
-                    p.getlastName()
+                    p.getLastName()
             });
         }
     }
