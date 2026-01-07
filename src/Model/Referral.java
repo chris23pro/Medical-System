@@ -1,21 +1,21 @@
 package Model;
 
 public class Referral extends ClinicalDocument {
-	
-	private String referralReason;
-	private String targetSpecialist;
-	private String SpecialistDoctor;
+    
+    private String referralReason;
+    private String targetSpecialist;
+    private String specialistDoctor;
 
-	public Referral(String docID, String docTitle, String docContent, String docDate, String RR,String tS,String SD) {
-		super(docID, docTitle, docContent, docDate);
-		referralReason = RR;
-		targetSpecialist = tS;
-		SpecialistDoctor = SD;
-	}
-	
-	
-	//Getter
-	public String getReferralReason() {
+    public Referral(String docID, String docTitle, String docContent, String docDate,
+                    String RR, String tS, String SD) {
+        super(docID, docTitle, docContent, docDate);
+        referralReason = RR;
+        targetSpecialist = tS;
+        specialistDoctor = SD;
+    }
+
+    // Getters
+    public String getReferralReason() {
         return referralReason;
     }
 
@@ -24,32 +24,18 @@ public class Referral extends ClinicalDocument {
     }
 
     public String getSpecialistDoctor() {
-        return SpecialistDoctor;
+        return specialistDoctor;
     }
-    
-    
-    
-    //methods 
+
+    // Methods
     public String getReferralDetails() {
         return "Referral Reason: " + referralReason +
                ", Target Specialist: " + targetSpecialist +
-               ", Specialist Doctor: " + SpecialistDoctor;
+               ", Specialist Doctor: " + specialistDoctor;
     }
-    
+
     @Override 
     public String toString() {
-    	return getDocumentID() + " - " + getTargetSpecialist() + " : " + getReferralReason(); 
+        return getDocumentID() + " - " + getTargetSpecialist() + " : " + getReferralReason(); 
     }
-
-
-	public String getDocumentTitle() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public String getDocumentDate() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

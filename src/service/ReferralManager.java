@@ -62,9 +62,9 @@ public class ReferralManager {
 
             bw.write("Referral ID: " + r.getDocumentID());
             bw.newLine();
-            bw.write("Title: " + r.getDocumentTitle());
+            bw.write("Title: " + r.getTitle());
             bw.newLine();
-            bw.write("Date: " + r.getDocumentDate());
+            bw.write("Date: " + r.getDateCreated());
             bw.newLine();
             bw.write("Reason: " + r.getReferralReason());
             bw.newLine();
@@ -80,4 +80,3 @@ public class ReferralManager {
         }
     }
 }
-
