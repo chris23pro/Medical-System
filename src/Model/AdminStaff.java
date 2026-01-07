@@ -6,7 +6,7 @@ public class AdminStaff extends Person {
 	
 
 	//constructor
-	 public AdminStaff(int uid, String fName, String lName, String dateOfBirth, String phone, String email, String staffId) {
+	 public AdminStaff(String uid, String fName, String lName, String dateOfBirth, String phone, String email, String staffId) {
 		 super(uid, fName, lName, dateOfBirth, phone, email);
 		 staffid = staffId;
 		 

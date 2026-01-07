@@ -10,7 +10,15 @@ import repository.ClinicianRepository;
 
 public class ClinicianService {
 
-    private ClinicianRepository clinicianRepository = new ClinicianRepository();
+    private ClinicianRepository clinicianRepository;
+
+    public ClinicianService() {
+        this(new ClinicianRepository());
+    }
+
+    public ClinicianService(ClinicianRepository clinicianRepository) {
+        this.clinicianRepository = clinicianRepository;
+    }
 
     public String registerClinician(Clinician clinician) {
 
@@ -43,18 +51,20 @@ public class ClinicianService {
             br.readLine(); // skip header
 
             while ((line = br.readLine()) != null) {
-                String[] data = line.split(",");
+                String[] data = CsvUtils.parseLine(line);
+                if (data.length < 11) {
+                    continue;
+                }
 
-                int uid = Integer.parseInt(data[0]);
+                String clinicianId = data[0];
                 String first = data[1];
                 String last = data[2];
-                String dob = data[3];
-                String phone = data[4];
-                String email = data[5];
-                String employeeId = data[6];
-                String licenseId = data[7];
+                String phone = data[6];
+                String email = data[7];
+                String employeeId = clinicianId;
+                String licenseId = data[5];
 
-                Clinician c = new Clinician(uid, first, last, dob, phone, email, employeeId, licenseId);
+                Clinician c = new Clinician(clinicianId, first, last, "", phone, email, employeeId, licenseId);
                 clinicianRepository.add(c);
             }
 

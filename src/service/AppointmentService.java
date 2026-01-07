@@ -15,13 +15,24 @@ import repository.ClinicianRepository;
 
 public class AppointmentService {
 
-    private AppointmentRepository appointmentRepository = new AppointmentRepository();
-    private PatientRepository patientRepository = new PatientRepository();
-    private ClinicianRepository clinicianRepository = new ClinicianRepository();
+    private AppointmentRepository appointmentRepository;
+    private PatientRepository patientRepository;
+    private ClinicianRepository clinicianRepository;
 
-    public String bookAppointment(String nhsNumber, String clinicianId, Appointment appointment) {
+    public AppointmentService() {
+        this(new AppointmentRepository(), new PatientRepository(), new ClinicianRepository());
+    }
 
-        Optional<Patient> patient = patientRepository.findByNhs(nhsNumber);
+    public AppointmentService(AppointmentRepository appointmentRepository, PatientRepository patientRepository,
+                              ClinicianRepository clinicianRepository) {
+        this.appointmentRepository = appointmentRepository;
+        this.patientRepository = patientRepository;
+        this.clinicianRepository = clinicianRepository;
+    }
+
+    public String bookAppointment(String patientId, String clinicianId, Appointment appointment) {
+
+        Optional<Patient> patient = patientRepository.findById(patientId);
         if (patient.isEmpty()) {
             return "Cannot book appointment. Patient does not exist.";
         }
@@ -61,12 +72,23 @@ public class AppointmentService {
             br.readLine(); // skip header
 
             while ((line = br.readLine()) != null) {
-                String[] data = line.split(",");
+                String[] data = CsvUtils.parseLine(line);
+                if (data.length < 10) {
+                    continue;
+                }
 
                 String appId = data[0];
-                String dateTime = data[4] + " " + data[5]; // date + time
+                String patientId = data[1];
+                String clinicianId = data[2];
+                String facilityId = data[3];
+                String date = data[4];
+                String time = data[5];
+                String appointmentType = data[7];
+                String status = data[8];
+                String reason = data[9];
 
-                Appointment a = new Appointment(appId, dateTime);
+                Appointment a = new Appointment(appId, patientId, clinicianId, facilityId, date, time,
+                        appointmentType, status, reason);
                 appointmentRepository.add(a);
             }
 

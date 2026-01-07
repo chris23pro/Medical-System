@@ -13,6 +13,16 @@ import service.AppointmentService;
 import service.ClinicianService;
 import service.DocumentService;
 import service.PatientRecordService;
+import service.FacilityService;
+import service.StaffService;
+import repository.AppointmentRepository;
+import repository.ClinicianRepository;
+import repository.FacilityRepository;
+import repository.PatientRecordRepository;
+import repository.PatientRepository;
+import repository.StaffRepository;
+import Model.Facility;
+import Model.Staff;
 
 /**
  * Controller layer that connects the View (UI) with the Service layer.
@@ -21,11 +31,20 @@ import service.PatientRecordService;
 public class MedicalController {
 
     // Service layer objects
-    private PatientService patientService = new PatientService();
-    private AppointmentService appointmentService = new AppointmentService();
-    private ClinicianService clinicianService = new ClinicianService();
+    private PatientRepository patientRepository = new PatientRepository();
+    private ClinicianRepository clinicianRepository = new ClinicianRepository();
+    private AppointmentRepository appointmentRepository = new AppointmentRepository();
+    private PatientRecordRepository patientRecordRepository = new PatientRecordRepository();
+    private FacilityRepository facilityRepository = new FacilityRepository();
+    private StaffRepository staffRepository = new StaffRepository();
+
+    private PatientService patientService = new PatientService(patientRepository);
+    private AppointmentService appointmentService = new AppointmentService(appointmentRepository, patientRepository, clinicianRepository);
+    private ClinicianService clinicianService = new ClinicianService(clinicianRepository);
     private DocumentService documentService = new DocumentService();
-    private PatientRecordService patientRecordService = new PatientRecordService();
+    private PatientRecordService patientRecordService = new PatientRecordService(patientRecordRepository, patientRepository);
+    private FacilityService facilityService = new FacilityService(facilityRepository);
+    private StaffService staffService = new StaffService(staffRepository);
 
 
     // ---------------------------------------------------------
@@ -68,8 +87,8 @@ public class MedicalController {
     /**
      * Books an appointment by delegating to the service layer.
      */
-    public String bookAppointment(String nhsNumber, String clinicianId, Appointment appointment) {
-        return appointmentService.bookAppointment(nhsNumber, clinicianId, appointment);
+    public String bookAppointment(String patientId, String clinicianId, Appointment appointment) {
+        return appointmentService.bookAppointment(patientId, clinicianId, appointment);
     }
 
     /**
@@ -138,6 +157,14 @@ public class MedicalController {
         return documentService.getAllDocuments();
     }
 
+    public List<Facility> getAllFacilities() {
+        return facilityService.getAllFacilities();
+    }
+
+    public List<Staff> getAllStaff() {
+        return staffService.getAllStaff();
+    }
+
 
     // ---------------------------------------------------------
     // PATIENT RECORD METHODS
@@ -146,8 +173,8 @@ public class MedicalController {
     /**
      * Creates a patient record.
      */
-    public String createRecord(String recordId, String nhsNumber) {
-        return patientRecordService.createRecord(recordId, nhsNumber);
+    public String createRecord(String recordId, String patientId) {
+        return patientRecordService.createRecord(recordId, patientId);
     }
 
     /**
@@ -163,6 +190,8 @@ public class MedicalController {
     public void loadAppointmentsFromCsv(String fileName) { appointmentService.loadFromCsv(fileName); }
     public void loadPrescriptionsFromCsv(String fileName) { documentService.loadPrescriptionsFromCsv(fileName); }
     public void loadReferralsFromCsv(String fileName) { documentService.loadReferralsFromCsv(fileName); }
+    public void loadFacilitiesFromCsv(String fileName) { facilityService.loadFromCsv(fileName); }
+    public void loadStaffFromCsv(String fileName) { staffService.loadFromCsv(fileName); }
 
     // Create prescription (and write to file)
     public void createPrescription(String id, String title, String content, String date,

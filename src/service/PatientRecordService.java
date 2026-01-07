@@ -17,16 +17,25 @@ import repository.PatientRecordRepository;
 public class PatientRecordService {
 
     // Repositories used by this service
-    private PatientRecordRepository recordRepository = new PatientRecordRepository();
-    private PatientRepository patientRepository = new PatientRepository();
+    private PatientRecordRepository recordRepository;
+    private PatientRepository patientRepository;
+
+    public PatientRecordService() {
+        this(new PatientRecordRepository(), new PatientRepository());
+    }
+
+    public PatientRecordService(PatientRecordRepository recordRepository, PatientRepository patientRepository) {
+        this.recordRepository = recordRepository;
+        this.patientRepository = patientRepository;
+    }
 
     /**
      * Creates a new patient record after validation.
      */
-    public String createRecord(String recordId, String nhsNumber) {
+    public String createRecord(String recordId, String patientId) {
 
         // Check if patient exists
-        Optional<Patient> patient = patientRepository.findByNhs(nhsNumber);
+        Optional<Patient> patient = patientRepository.findById(patientId);
         if (patient.isEmpty()) {
             return "Cannot create record. Patient does not exist.";
         }

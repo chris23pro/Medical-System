@@ -2,7 +2,7 @@ package Model;
 
 
 public class Person {
-	private int uniqueId;
+	private String uniqueId;
     private String firstName;
     private String lastName;
     private String dob;          
@@ -10,7 +10,7 @@ public class Person {
     private String contactEmail;
 	
 	//Constructor
-    public Person(int uid, String fName, String lName, String dateOfBirth, String phone, String email) {
+    public Person(String uid, String fName, String lName, String dateOfBirth, String phone, String email) {
         uniqueId = uid;
         firstName = fName;
         lastName = lName;
@@ -21,7 +21,7 @@ public class Person {
 	
 	
     //getters
-    public int getUniqueId() {
+    public String getUniqueId() {
     	return uniqueId;
     }
     

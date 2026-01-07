@@ -44,7 +44,10 @@ public class DocumentService {
             br.readLine(); // skip header
 
             while ((line = br.readLine()) != null) {
-                String[] data = line.split(",");
+                String[] data = CsvUtils.parseLine(line);
+                if (data.length < 15) {
+                    continue;
+                }
 
                 String id = data[0];
                 String date = data[4];
@@ -67,13 +70,16 @@ public class DocumentService {
             br.readLine(); // skip header
 
             while ((line = br.readLine()) != null) {
-                String[] data = line.split(",");
+                String[] data = CsvUtils.parseLine(line);
+                if (data.length < 16) {
+                    continue;
+                }
 
                 String id = data[0];
                 String date = data[6];
                 String reason = data[8];
-                String target = data[9];
-                String doctor = data[3];
+                String target = data[3];
+                String doctor = data[2];
 
                 Referral r = new Referral(id, "Referral", "Auto-loaded", date, reason, target, doctor);
                 documentRepository.add(r);
@@ -106,6 +112,29 @@ public class DocumentService {
 
         } catch (IOException e) {
             System.out.println("Error writing prescription file: " + e.getMessage());
+        }
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("prescriptions.csv", true))) {
+            bw.write(String.join(",",
+                    id,
+                    "",
+                    "",
+                    "",
+                    date,
+                    drug,
+                    dose,
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    date,
+                    ""
+            ));
+            bw.newLine();
+        } catch (IOException e) {
+            System.out.println("Error writing prescription CSV: " + e.getMessage());
         }
     }
 
