@@ -65,6 +65,17 @@ public class AppointmentService {
         return "Appointment cancelled (if it existed).";
     }
 
+    public String updateAppointment(String existingAppId, Appointment updatedAppointment) {
+        Optional<Appointment> existing = appointmentRepository.findById(existingAppId);
+        if (existing.isEmpty()) {
+            return "Appointment not found.";
+        }
+
+        appointmentRepository.deleteById(existingAppId);
+        appointmentRepository.save(updatedAppointment);
+        return "Appointment updated successfully.";
+    }
+
     public void loadFromCsv(String fileName) {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
 

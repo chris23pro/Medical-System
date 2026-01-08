@@ -79,6 +79,10 @@ public class MedicalController {
         return patientService.deletePatient(nhsNumber);
     }
 
+    public String updatePatient(String existingNhsNumber, Patient patient) {
+        return patientService.updatePatient(existingNhsNumber, patient);
+    }
+
 
     // ---------------------------------------------------------
     // APPOINTMENT METHODS
@@ -112,6 +116,10 @@ public class MedicalController {
         return appointmentService.cancelAppointment(appId);
     }
 
+    public String updateAppointment(String existingAppId, Appointment appointment) {
+        return appointmentService.updateAppointment(existingAppId, appointment);
+    }
+
 
     // ---------------------------------------------------------
     // CLINICIAN METHODS
@@ -136,6 +144,14 @@ public class MedicalController {
      */
     public List<Clinician> getAllClinicians() {
         return clinicianService.getAllClinicians();
+    }
+
+    public String deleteClinician(String employeeId) {
+        return clinicianService.deleteClinician(employeeId);
+    }
+
+    public String updateClinician(String existingEmployeeId, Clinician clinician) {
+        return clinicianService.updateClinician(existingEmployeeId, clinician);
     }
 
 
@@ -203,6 +219,44 @@ public class MedicalController {
     public void createReferral(String id, String title, String content, String date,
                                String reason, String target, String doctor) {
         documentService.createReferral(id, title, content, date, reason, target, doctor);
+    }
+
+    public String updatePrescription(String id, String title, String content, String date,
+                                     String drug, String dose) {
+        return documentService.updatePrescription(id, title, content, date, drug, dose);
+    }
+
+    public String updateReferral(String id, String title, String content, String date,
+                                 String reason, String target, String doctor) {
+        return documentService.updateReferral(id, title, content, date, reason, target, doctor);
+    }
+
+    public String deleteDocument(String documentId) {
+        return documentService.deleteDocument(documentId);
+    }
+
+    public String addFacility(Facility facility) {
+        return facilityService.addFacility(facility);
+    }
+
+    public String updateFacility(String existingId, Facility facility) {
+        return facilityService.updateFacility(existingId, facility);
+    }
+
+    public String deleteFacility(String facilityId) {
+        return facilityService.deleteFacility(facilityId);
+    }
+
+    public String addStaff(Staff staff) {
+        return staffService.addStaff(staff);
+    }
+
+    public String updateStaff(String existingId, Staff staff) {
+        return staffService.updateStaff(existingId, staff);
+    }
+
+    public String deleteStaff(String staffId) {
+        return staffService.deleteStaff(staffId);
     }
 
 }

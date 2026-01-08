@@ -23,6 +23,22 @@ public class FacilityService {
         return facilityRepository.findAll();
     }
 
+    public String addFacility(Facility facility) {
+        facilityRepository.save(facility);
+        return "Facility added successfully.";
+    }
+
+    public String updateFacility(String existingId, Facility updatedFacility) {
+        facilityRepository.deleteById(existingId);
+        facilityRepository.save(updatedFacility);
+        return "Facility updated successfully.";
+    }
+
+    public String deleteFacility(String facilityId) {
+        facilityRepository.deleteById(facilityId);
+        return "Facility deleted (if it existed).";
+    }
+
     public void loadFromCsv(String fileName) {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
 

@@ -23,6 +23,22 @@ public class StaffService {
         return staffRepository.findAll();
     }
 
+    public String addStaff(Staff staff) {
+        staffRepository.save(staff);
+        return "Staff added successfully.";
+    }
+
+    public String updateStaff(String existingId, Staff updatedStaff) {
+        staffRepository.deleteById(existingId);
+        staffRepository.save(updatedStaff);
+        return "Staff updated successfully.";
+    }
+
+    public String deleteStaff(String staffId) {
+        staffRepository.deleteById(staffId);
+        return "Staff deleted (if it existed).";
+    }
+
     public void loadFromCsv(String fileName) {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
 

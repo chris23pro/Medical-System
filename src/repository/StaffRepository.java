@@ -29,4 +29,8 @@ public class StaffRepository {
     public List<Staff> findAll() {
         return new ArrayList<>(staffMembers);
     }
+
+    public void deleteById(String staffId) {
+        staffMembers.removeIf(staff -> staff.getStaffId().equals(staffId));
+    }
 }
