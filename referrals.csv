@@ -1,0 +1,1 @@
+referral_id,patient_id,referring_clinician_id,target_specialist,facility_id,department,date,priority,reason,notes,status,created_at,updated_at,source,category,follow_up_date

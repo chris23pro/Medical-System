@@ -1,0 +1,1 @@
+prescription_id,patient_id,clinician_id,facility_id,date,drug,dose,route,frequency,quantity,refills,instructions,notes,created_at,updated_at
