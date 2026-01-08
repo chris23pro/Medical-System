@@ -44,6 +44,22 @@ public class ClinicianService {
         return clinicianRepository.findAll();
     }
 
+    public String deleteClinician(String employeeId) {
+        clinicianRepository.deleteByEmployeeId(employeeId);
+        return "Clinician deleted (if they existed).";
+    }
+
+    public String updateClinician(String existingEmployeeId, Clinician updatedClinician) {
+        Optional<Clinician> existing = clinicianRepository.findByEmployeeId(existingEmployeeId);
+        if (existing.isEmpty()) {
+            return "Clinician not found.";
+        }
+
+        clinicianRepository.deleteByEmployeeId(existingEmployeeId);
+        clinicianRepository.save(updatedClinician);
+        return "Clinician updated successfully.";
+    }
+
     public void loadFromCsv(String fileName) {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
 

@@ -29,4 +29,8 @@ public class FacilityRepository {
     public List<Facility> findAll() {
         return new ArrayList<>(facilities);
     }
+
+    public void deleteById(String facilityId) {
+        facilities.removeIf(facility -> facility.getFacilityId().equals(facilityId));
+    }
 }

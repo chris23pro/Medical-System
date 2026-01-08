@@ -147,4 +147,35 @@ public class DocumentService {
         manager.addReferral(r);
         manager.writeReferralToFile(r);
     }
+
+    public String updatePrescription(String existingId, String title, String content, String date,
+                                     String drug, String dose) {
+        Optional<ClinicalDocument> existing = documentRepository.findById(existingId);
+        if (existing.isEmpty()) {
+            return "Prescription not found.";
+        }
+
+        documentRepository.deleteById(existingId);
+        Prescription p = new Prescription(existingId, title, content, date, drug, dose);
+        documentRepository.save(p);
+        return "Prescription updated successfully.";
+    }
+
+    public String updateReferral(String existingId, String title, String content, String date,
+                                 String reason, String target, String doctor) {
+        Optional<ClinicalDocument> existing = documentRepository.findById(existingId);
+        if (existing.isEmpty()) {
+            return "Referral not found.";
+        }
+
+        documentRepository.deleteById(existingId);
+        Referral r = new Referral(existingId, title, content, date, reason, target, doctor);
+        documentRepository.save(r);
+        return "Referral updated successfully.";
+    }
+
+    public String deleteDocument(String documentId) {
+        documentRepository.deleteById(documentId);
+        return "Document deleted (if it existed).";
+    }
 }

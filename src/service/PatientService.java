@@ -49,6 +49,17 @@ public class PatientService {
         return "Patient deleted (if they existed).";
     }
 
+    public String updatePatient(String existingNhsNumber, Patient updatedPatient) {
+        Optional<Patient> existing = patientRepository.findByNhs(existingNhsNumber);
+        if (existing.isEmpty()) {
+            return "Patient not found.";
+        }
+
+        patientRepository.deleteByNhs(existingNhsNumber);
+        patientRepository.save(updatedPatient);
+        return "Patient updated successfully.";
+    }
+
     public void loadFromCsv(String fileName) {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
 
