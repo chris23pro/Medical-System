@@ -1,1 +1,13 @@
 appointment_id,patient_id,clinician_id,facility_id,date,time,location,appointment_type,status,reason
+A001,P001,C001,S001,20/09/2025,09:00,,Routine Consultation,Scheduled,Annual health check
+A002,P002,C009,S001,20/09/2025,10:30,,Vaccination,Scheduled,Flu vaccination
+A003,P003,C003,S002,21/09/2025,14:00,,Follow-up,Scheduled,Blood pressure check
+A004,P004,C002,S001,22/09/2025,11:15,,Urgent Consultation,Scheduled,Chest pain
+A005,P005,C005,H001,25/09/2025,15:30,,Specialist Consultation,Scheduled,Cardiology referral
+A006,P006,C004,S003,23/09/2025,09:45,,Routine Consultation,Scheduled,Prescription review
+A007,P007,C001,S001,24/09/2025,16:00,,Emergency,Cancelled,Sudden illness
+A008,P008,C010,S002,26/09/2025,10:00,,Health Check,Scheduled,Well woman screening
+A009,P009,C007,H002,27/09/2025,13:00,,Specialist Consultation,Scheduled,Orthopaedic assessment
+A010,P010,C002,S001,28/09/2025,08:30,,Follow-up,Scheduled,Diabetes review
+A011,P001,C006,H001,02/10/2025,14:15,,Specialist Consultation,Scheduled,Neurology referral
+A012,P003,C012,H002,05/10/2025,11:00,,Specialist Consultation,Scheduled,Gastroenterology

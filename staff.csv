@@ -1,1 +1,17 @@
 staff_id,first_name,last_name,role,facility_id,phone,email,address,city,postcode,start_date,employment_type
+ST001,Michelle,Adams,Practice Manager,S001,7111333444,m.adams@birminghamgp.nhs.uk,,,,01/03/2019,Full-time
+ST002,James,Wilson,Receptionist,S001,7111333445,j.wilson@birminghamgp.nhs.uk,,,,15/07/2020,Part-time
+ST003,Carol,Smith,Medical Secretary,S001,7111333446,c.smith@birminghamgp.nhs.uk,,,,20/11/2018,Full-time
+ST004,Peter,Johnson,Healthcare Assistant,S001,7111333447,p.johnson@birminghamgp.nhs.uk,,,,10/01/2021,Full-time
+ST005,Sandra,Brown,Practice Manager,S002,7111333448,s.brown@solihullgp.nhs.uk,,,,12/05/2017,Full-time
+ST006,Kevin,Davis,Receptionist,S002,7111333449,k.davis@solihullgp.nhs.uk,,,,03/09/2019,Full-time
+ST007,Lisa,Miller,Medical Secretary,S002,7111333450,l.miller@solihullgp.nhs.uk,,,,18/02/2020,Part-time
+ST008,Margaret,Taylor,Practice Manager,S003,7111333451,m.taylor@suttongp.nhs.uk,,,,25/08/2018,Full-time
+ST009,Robert,Anderson,Receptionist,S003,7111333452,r.anderson@suttongp.nhs.uk,,,,07/04/2021,Full-time
+ST010,Helen,White,Healthcare Assistant,S003,7111333453,h.white@suttongp.nhs.uk,,,,14/10/2020,Full-time
+ST011,David,Thompson,Hospital Administrator,H001,7111333454,d.thompson@heartlandshospital.nhs.uk,,,,01/12/2016,Full-time
+ST012,Julie,Roberts,Ward Clerk,H001,7111333455,j.roberts@heartlandshospital.nhs.uk,,,,22/06/2019,Full-time
+ST013,Mark,Evans,Porter,H001,7111333456,m.evans@heartlandshospital.nhs.uk,,,,15/01/2020,Full-time
+ST014,Susan,Clarke,Appointments Coordinator,H002,7111333457,s.clarke@queenshospital.nhs.uk,,,,30/04/2018,Full-time
+ST015,Andrew,Phillips,Medical Records Clerk,H002,7111333458,a.phillips@queenshospital.nhs.uk,,,,08/02/2021,Part-time
+ST016,Patricia,Green,Children's Unit Coordinator,H003,7111333459,p.green@birminghamhospital.nhs.uk,,,,12/10/2017,Full-time
