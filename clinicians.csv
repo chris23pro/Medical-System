@@ -1,1 +1,13 @@
 clinician_id,first_name,last_name,department,facility_id,license_id,phone,email,employee_type,status,notes
+C001,Dr. David,Thompson,General Practice,S001,7654321,7111222333,d.thompson@birminghamgp.nhs.uk,GP Surgery,Full-time,01/04/2018
+C002,Dr. Helen,Roberts,General Practice,S001,7654322,7111222334,h.roberts@birminghamgp.nhs.uk,GP Surgery,Part-time,15/09/2019
+C003,Dr. Mark,Davies,General Practice,S002,7654323,7111222335,m.davies@solihullgp.nhs.uk,GP Surgery,Full-time,20/02/2017
+C004,Dr. Susan,Clarke,General Practice,S003,7654324,7111222336,s.clarke@suttongp.nhs.uk,GP Surgery,Full-time,10/01/2020
+C005,Dr. Richard,Evans,Cardiology,H001,7654325,7111222337,r.evans@heartlandshospital.nhs.uk,Hospital,Full-time,12/08/2015
+C006,Dr. Maria,Rodriguez,Neurology,H001,7654326,7111222338,m.rodriguez@heartlandshospital.nhs.uk,Hospital,Full-time,05/11/2016
+C007,Dr. Andrew,White,Orthopaedics,H002,7654327,7111222339,a.white@queenshospital.nhs.uk,Hospital,Full-time,18/03/2019
+C008,Dr. Jennifer,Lee,Dermatology,H003,7654328,7111222340,j.lee@birminghamhospital.nhs.uk,Hospital,Part-time,01/06/2021
+C009,Sister Mary,Kelly,General Nursing,S001,N654321,7111222341,m.kelly@birminghamgp.nhs.uk,GP Surgery,Full-time,15/01/2019
+C010,Nurse Jane,Phillips,Practice Nursing,S002,N654322,7111222342,j.phillips@solihullgp.nhs.uk,GP Surgery,Full-time,20/05/2020
+C011,Nurse Robert,Green,General Nursing,H001,N654323,7111222343,r.green@heartlandshospital.nhs.uk,Hospital,Full-time,10/09/2018
+C012,Dr. Paul,Harris,Gastroenterology,H002,7654329,7111222344,p.harris@queenshospital.nhs.uk,Hospital,Full-time,03/12/2017
